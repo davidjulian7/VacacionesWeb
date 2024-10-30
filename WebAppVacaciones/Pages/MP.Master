@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MP.master.cs" Inherits="WebAppVacaciones.Pages.MP" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+    <style>
+        /* Cambia el color de las flechas de los menús desplegables */
+        .navbar-item.has-dropdown .navbar-link::after {
+            border-color: transparent transparent #08a0de transparent; /* Cambia el color de la flecha */
+        }
+
+        /* También puedes cambiar el color de la flecha cuando el menú está abierto */
+        .navbar-item.has-dropdown.is-active .navbar-link::after {
+            border-color: #08a0de transparent transparent transparent; /* Cambia el color cuando está activo */
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://www.gnt.mx/">
+                        <img src="../Img/Logo.png" />
+                    </a>
+
+                    <!-- Menú Consultas -->
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Gestión de Usuarios</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="Create Users.aspx">Registar Usuario</a>
+                            <a class="navbar-item" href="Read Users.aspx">Consultar Usuario</a>
+                        </div>
+                    </div>
+
+                    <!-- Menú Administración -->
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Gestión de Empleados</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="CreateEmployee.aspx">Registar Empleado</a>
+                            <a class="navbar-item" href="ModUs.aspx">Consultar Empleado</a>
+                        </div>
+                    </div>
+
+                    <!-- Información del usuario en la esquina derecha -->
+                    <div class="navbar-end">
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Más</a>
+                            <div class="navbar-dropdown is-right">
+                                <a class="navbar-item" href="#">Configuración de Perfil</a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item" href="#" runat="server" onserverclick="Logout_Click">Cerrar Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu"></div>
+            </nav>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer style="background-color: rgba(255, 255, 255, 0.1); padding: 1rem; color: #ffffff; text-align: center;">
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">
+            <strong>GNT TELECOM by</strong> <a href="#" style="color: #08a0de; text-decoration: none;">ASP.NET</a>
+        </p>
+        <div style="font-size: 0.8rem;">
+            <a href="#" style="color: #08a0de; margin-right: 15px; text-decoration: none;">Política de Privacidad</a>
+            <a href="#" style="color: #08a0de; margin-right: 15px; text-decoration: none;">Términos de Servicio</a>
+            <a href="#" style="color: #08a0de; text-decoration: none;">Contacto</a>
+        </div>
+    </footer>
+
+</body>
+</html>
